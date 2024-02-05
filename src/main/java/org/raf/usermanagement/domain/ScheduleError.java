@@ -1,24 +1,30 @@
 package org.raf.usermanagement.domain;
 
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class UserPermission {
+@AllArgsConstructor
+public class ScheduleError {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private LocalDateTime date;
+    @ManyToOne
+    private Usisivac usisivac;
     @ManyToOne
     private User user;
-
-    @ManyToOne
-    private Permission permission;
+    private String operation;
+    private String message;
 }

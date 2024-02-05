@@ -1,8 +1,6 @@
 package org.raf.usermanagement.service;
 
-import org.raf.usermanagement.dtos.*;
-
-import java.util.List;
+import org.raf.usermanagement.dtos.user.*;
 
 public interface UserService {
 

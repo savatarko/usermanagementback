@@ -1,8 +1,8 @@
 package org.raf.usermanagement.mapper;
 
 import org.raf.usermanagement.domain.User;
-import org.raf.usermanagement.dtos.CreateUserDto;
-import org.raf.usermanagement.dtos.UserDto;
+import org.raf.usermanagement.dtos.user.CreateUserDto;
+import org.raf.usermanagement.dtos.user.UserDto;
 import org.raf.usermanagement.security.PasswordSecurity;
 
 public class UserMapper {

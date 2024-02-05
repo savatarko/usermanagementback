@@ -8,7 +8,7 @@ import org.raf.usermanagement.db.UserRepository;
 import org.raf.usermanagement.domain.Permission;
 import org.raf.usermanagement.domain.User;
 import org.raf.usermanagement.domain.UserPermission;
-import org.raf.usermanagement.dtos.*;
+import org.raf.usermanagement.dtos.user.*;
 import org.raf.usermanagement.exceptions.NoUserException;
 import org.raf.usermanagement.exceptions.NotAuthorizedException;
 import org.raf.usermanagement.exceptions.PermissionNotFoundException;
@@ -16,7 +16,6 @@ import org.raf.usermanagement.exceptions.UserAlreadyExistsException;
 import org.raf.usermanagement.mapper.UserMapper;
 import org.raf.usermanagement.security.MyTokenService;
 import org.raf.usermanagement.security.PasswordSecurity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -154,6 +153,13 @@ public class UserServiceImpl implements UserService{
         }
 
         User userToDelete = userRepository.findUserByEmail(email).orElseThrow(NoUserException::new);
+
+        if(userToDelete.equals(user)){
+            throw new NotAuthorizedException();
+        }
+
+        userPermissionRepository.deleteAllByUser(userToDelete);
+
         userRepository.delete(userToDelete);
     }
 

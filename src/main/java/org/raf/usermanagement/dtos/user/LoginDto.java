@@ -1,4 +1,4 @@
-package org.raf.usermanagement.dtos;
+package org.raf.usermanagement.dtos.user;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package org.raf.usermanagement.dtos;
+package org.raf.usermanagement.dtos.user;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -6,12 +6,13 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
 @NoArgsConstructor
-public class CreateUserDto {
+@AllArgsConstructor
+public class UserDto {
+    public Long id;
     public String name;
     public String surname;
     public String email;
-    public String password;
     public List<String> permissions = new ArrayList<>();
+
 }
